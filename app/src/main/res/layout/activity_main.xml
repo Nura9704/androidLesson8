@@ -7,12 +7,84 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/firstMainTextview"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/main_activity_text"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/secondMainTextview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/main_activity_text2"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstMainTextview"
+        app:layout_constraintVertical_bias="0.03" />
+
+    <ImageView
+        android:id="@+id/matrixImageView"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:src="@drawable/maxresdefault"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/secondMainTextview" />
+
+    <Button
+        android:id="@+id/btnSetStyleRed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_red_style"
+        app:layout_constraintEnd_toStartOf="@id/btnSetStyleBlue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/matrixImageView" />
+
+    <Button
+        android:id="@+id/btnSetStyleBlue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_blue_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnSetStyleRed"
+        app:layout_constraintTop_toBottomOf="@id/matrixImageView" />
+
+    <TextView
+        android:id="@+id/quoteTextview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/textView_quote"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSetStyleRed"
+        app:layout_constraintVertical_bias="0.03" />
+
+    <Button
+        android:id="@+id/btnSecondActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/btn_second_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quoteTextview" />
+
+    <Button
+        android:id="@+id/btnThirdActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/btn_third_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSecondActivity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

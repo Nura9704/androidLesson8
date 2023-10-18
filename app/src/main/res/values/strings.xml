@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Lesson 8</string>
+
+    //Texts of First Activity
+    <string name="main_activity_text">Здравствуй мой дорогой.
+        Если неежно нажмешь на кнопки ниже, то ты
+        перейдешь на другие ОКНА.
+        И еще прочитай слова назидания от самого Джейсона Стэтхэма</string>
+    <string name="main_activity_text2">Но сначала выбери на какой ты стороне цвета</string>
+    <string name="textView_quote">Есть такая штука как «Двигаться дальше».
+        Попробуйте, поможет</string>
+
+    //Texts of Second Activity
+    <string name="second_activity">Шутка. Ты и тут сможешь переходить на другие окна,
+    нажав соответсвущие кнопки. И не забудь про цитату еще раз прочитать.</string>
+
+    //Texts of Buttons
+    <string name="btn_first_activity">Первое окно</string>
+    <string name="btn_second_activity">Второе окно</string>
+    <string name="btn_third_activity">Третья окно</string>
+    <string name="btn_red_style">Цвет настроения красный</string>
+    <string name="btn_blue_style">Цвет настроения синий</string>
+    <string name="btn_set_image">Второе цитата дяди Джейсона</string>
+
 </resources>
