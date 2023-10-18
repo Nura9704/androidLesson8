@@ -1,4 +1,4 @@
-package kz.course.androidlesson8
+package kz.course.lesson8
 
 import android.app.PendingIntent.getActivity
 import android.content.Intent
@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import kz.course.lesson8.R
-
 
 class ThirdActivity : AppCompatActivity() {
     private lateinit var btnFirstActivity: Button

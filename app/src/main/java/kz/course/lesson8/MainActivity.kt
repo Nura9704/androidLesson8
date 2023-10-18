@@ -1,4 +1,4 @@
-package kz.course.androidlesson8
+package kz.course.lesson8
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.widget.TextViewCompat
-import kz.course.androidlesson8.SecondActivity.Companion.SECOND_ACTIVITY_KEY
-import kz.course.androidlesson8.ThirdActivity.Companion.THIRD_ACTIVITY_KEY
-import kz.course.lesson8.R
+import kz.course.lesson8.SecondActivity.Companion.SECOND_ACTIVITY_KEY
+import kz.course.lesson8.ThirdActivity.Companion.THIRD_ACTIVITY_KEY
 
 class MainActivity : AppCompatActivity() {
 
