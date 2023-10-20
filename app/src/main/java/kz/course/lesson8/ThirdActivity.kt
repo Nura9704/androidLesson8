@@ -1,6 +1,5 @@
 package kz.course.lesson8
 
-import android.app.PendingIntent.getActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,44 +19,50 @@ class ThirdActivity : AppCompatActivity() {
         setContentView(R.layout.activity_third)
 
         initViews()
-        changeActivity()
-        setImage()
+        initListeners()
     }
 
     private fun initViews() {
         btnFirstActivity = findViewById(R.id.btnFirstActivity)
         btnSecondActivity = findViewById(R.id.btnSecondActivity)
+        btnSetImage = findViewById(R.id.btnSetImage)
+        quoteImage = findViewById(R.id.quoteImageView)
         quoteTextview = findViewById(R.id.quoteTextview)
-        quoteTextview.text = intent.getStringExtra(THIRD_ACTIVITY_KEY)
+        quoteTextview.text = intent.getStringExtra(THIRD_ACTIVITY_EXTRA)
     }
 
-    //change Activities when click Buttons
-    private fun changeActivity() {
+    private fun initListeners() {
         btnFirstActivity.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            goToFirstActivity()
         }
 
         btnSecondActivity.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra(
-                SecondActivity.SECOND_ACTIVITY_KEY,
-                resources.getText(R.string.textView_quote)
-            )
-            startActivity(intent)
+            goToSecondActivity()
+        }
+
+        btnSetImage.setOnClickListener {
+            showImage()
         }
     }
 
-    //set Image to ImageView when click Button
-    private fun setImage() {
-        btnSetImage = findViewById(R.id.btnSetImage)
-        quoteImage = findViewById(R.id.quoteImageView)
-        btnSetImage.setOnClickListener {
-            quoteImage.setBackgroundResource(R.drawable.statham_quote)
-        }
+    private fun goToFirstActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToSecondActivity() {
+        val intent = Intent(this, SecondActivity::class.java)
+        intent.putExtra(SecondActivity.SECOND_ACTIVITY_EXTRA,
+            resources.getText(R.string.textView_quote)
+        )
+        startActivity(intent)
+    }
+
+    private fun showImage() {
+        quoteImage.setBackgroundResource(R.drawable.statham_quote)
     }
 
     companion object {
-        const val THIRD_ACTIVITY_KEY = ""
+        const val THIRD_ACTIVITY_EXTRA = "Third Activity Extra"
     }
 }

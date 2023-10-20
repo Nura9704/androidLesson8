@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.widget.TextViewCompat
-import kz.course.lesson8.SecondActivity.Companion.SECOND_ACTIVITY_KEY
-import kz.course.lesson8.ThirdActivity.Companion.THIRD_ACTIVITY_KEY
+import kz.course.lesson8.SecondActivity.Companion.SECOND_ACTIVITY_EXTRA
+import kz.course.lesson8.ThirdActivity.Companion.THIRD_ACTIVITY_EXTRA
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,9 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initViews()
-        setStyleRed()
-        setStyleBlue()
-        changeActivity()
+        initListeners()
     }
 
     private fun initViews() {
@@ -39,32 +37,43 @@ class MainActivity : AppCompatActivity() {
         quoteTextview = findViewById(R.id.quoteTextview)
     }
 
-    private fun setStyleRed() {
-        btnSetStyleRed.setOnClickListener() {
-            TextViewCompat.setTextAppearance(firstMainTextview, R.style.style_red)
-            TextViewCompat.setTextAppearance(secondMainTextview, R.style.style_red)
+    private fun initListeners() {
+        btnSetStyleRed.setOnClickListener {
+            makeStyleRed()
+        }
+
+        btnSetStyleBlue.setOnClickListener {
+            makeStyleBlue()
+        }
+
+        btnSecondActivity.setOnClickListener {
+            goToSecondActivity()
+        }
+
+        btnThirdActivity.setOnClickListener {
+            goToThirdActivity()
         }
     }
 
-    private fun setStyleBlue() {
-        btnSetStyleBlue.setOnClickListener() {
-            TextViewCompat.setTextAppearance(firstMainTextview, R.style.style_blue)
-            TextViewCompat.setTextAppearance(secondMainTextview, R.style.style_blue)
-        }
+    private fun makeStyleRed() {
+        TextViewCompat.setTextAppearance(firstMainTextview, R.style.style_red)
+        TextViewCompat.setTextAppearance(secondMainTextview, R.style.style_red)
     }
 
-    private fun changeActivity() {
-        btnSecondActivity.setOnClickListener() {
-            val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra(SECOND_ACTIVITY_KEY, resources.getText(R.string.textView_quote))
-            startActivity(intent)
-        }
-
-        btnThirdActivity.setOnClickListener() {
-            val intent = Intent(this, ThirdActivity::class.java)
-            intent.putExtra(THIRD_ACTIVITY_KEY, resources.getText(R.string.textView_quote))
-            startActivity(intent)
-        }
+    private fun makeStyleBlue() {
+        TextViewCompat.setTextAppearance(firstMainTextview, R.style.style_blue)
+        TextViewCompat.setTextAppearance(secondMainTextview, R.style.style_blue)
     }
 
+    private fun goToSecondActivity() {
+        val intent = Intent(this, SecondActivity::class.java)
+        intent.putExtra(SECOND_ACTIVITY_EXTRA, resources.getText(R.string.textView_quote))
+        startActivity(intent)
+    }
+
+    private fun goToThirdActivity() {
+        val intent = Intent(this, ThirdActivity::class.java)
+        intent.putExtra(THIRD_ACTIVITY_EXTRA, resources.getText(R.string.textView_quote))
+        startActivity(intent)
+    }
 }

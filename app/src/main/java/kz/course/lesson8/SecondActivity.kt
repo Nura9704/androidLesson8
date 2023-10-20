@@ -17,33 +17,42 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         initViews()
-        changeActivity()
+        initListeners()
     }
 
     private fun initViews() {
         btnThirdActivity = findViewById(R.id.btnThirdActivity)
         btnFirstActivity = findViewById(R.id.btnFirstActivity)
         quoteTextview = findViewById(R.id.quoteTextview)
-        quoteTextview.text = intent.getStringExtra(SECOND_ACTIVITY_KEY)
+        quoteTextview.text = intent.getStringExtra(SECOND_ACTIVITY_EXTRA)
     }
 
     companion object {
-        const val SECOND_ACTIVITY_KEY = ""
+        const val SECOND_ACTIVITY_EXTRA = "Second Activity Extra"
     }
 
-    private fun changeActivity() {
-        btnFirstActivity.setOnClickListener() {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+    private fun initListeners() {
+        btnFirstActivity.setOnClickListener {
+            goToFirstActivity()
         }
 
         btnThirdActivity.setOnClickListener() {
-            val intent = Intent(this, ThirdActivity::class.java)
-            intent.putExtra(
-                ThirdActivity.THIRD_ACTIVITY_KEY,
-                resources.getText(R.string.textView_quote)
-            )
-            startActivity(intent)
+            goToThirdActivity()
         }
+
+    }
+
+    private fun goToFirstActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToThirdActivity() {
+        val intent = Intent(this, ThirdActivity::class.java)
+        intent.putExtra(
+            ThirdActivity.THIRD_ACTIVITY_EXTRA,
+            resources.getText(R.string.textView_quote)
+        )
+        startActivity(intent)
     }
 }
